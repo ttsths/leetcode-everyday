@@ -316,6 +316,116 @@ class Solution {
 >
 >所有输入只包含小写字母 a-z 。
 >
+
+```java
+/**
+     * 
+       利用栈(先进后出的特性)来实现，每次遇到左边元素则压栈，遇到右边元素则从栈顶出
+     * 需要一个Hash表来存储括号KV，K是右括号，V是左括号
+     * 注意：""也是符合要求的。。。
+     * 时间复杂度：O(m)
+     * 空间复杂度：O(m)
+     * @param s
+     * @return
+     */
+    public static boolean isValidUseStack(String s) {
+        Stack<Character> stack = new Stack<>();
+        if(s.length() == 0){
+            return true;
+        }
+        if(s.length()%2!=0){
+            return false;
+        }
+        Map<Character,Character> map = new HashMap<>(16);
+        map.put(']','[');
+        map.put(')','(');
+        map.put('}','{');
+        for(int i = 0;i<s.length();i++){
+            Character key = s.charAt(i);
+            if(map.containsKey(key)){
+                //pop栈顶元素
+                char topEle = stack.empty() ? '#' : stack.pop();
+                if(topEle != map.get(key)){
+                    return false;
+                }
+            }else{
+                stack.push(key);
+            }
+        }
+        return stack.isEmpty();
+
+    }
+```
+
+## Day Four
+
+>7.删除排序数组中的重复项
 >
+>给定一个排序数组，你需要在原地删除重复出现的元素，使得每个元素只出现一次，返回移除后数组的新长度。
 >
+>不要使用额外的数组空间，你必须在原地修改输入数组并在使用 O(1) 额外空间的条件下完成。
 >
+>示例 1:
+>
+>给定数组 nums = [1,1,2], 
+>
+>函数应该返回新的长度 2, 并且原数组 nums 的前两个元素被修改为 1, 2。 
+>
+>你不需要考虑数组中超出新长度后面的元素。
+>示例 2:
+>
+>给定 nums = [0,0,1,1,1,2,2,3,3,4],
+>
+>函数应该返回新的长度 5, 并且原数组 nums 的前五个元素被修改为 0, 1, 2, 3, 4。
+>
+>你不需要考虑数组中超出新长度后面的元素。
+>说明:
+>
+>为什么返回数值是整数，但输出的答案是数组呢?
+>
+>请注意，输入数组是以“引用”方式传递的，这意味着在函数里修改输入数组对于调用者是可见的。
+>
+>你可以想象内部操作如下:
+>
+>// nums 是以“引用”方式传递的。也就是说，不对实参做任何拷贝
+>int len = removeDuplicates(nums);
+>
+>// 在函数里修改输入数组对于调用者是可见的。
+>// 根据你的函数返回的长度, 它会打印出数组中该长度范围内的所有元素。
+>for (int i = 0; i < len; i++) {
+>    print(nums[i]);
+>}
+
+```java
+public class RemoveDuplicateSortdArray {
+    public static void main(String[] args) {
+        int[] nums = new int[]{0,0,1,2,3,3,4};
+        int len = removeDuplicates(nums);
+        for (int i = 0; i < len; i++) {
+            System.out.println(nums[i]);
+        }
+    }
+    /**
+     * 快慢指针法
+     * @param nums 已经排序的数组
+     * @return
+     * 0 1 1 2 3 3 4 i = 1;j = 2
+     * 0 1 1 2 3 3 4 i = 2;j = 3
+     * 0 1 2 3 3 3 4 i = 3;j = 4
+     * 0 1 2 3 4 3 4 i = 4;j = 6
+     *
+     */
+    public static int removeDuplicates(int[] nums) {
+        if(0 == nums.length) return 0;
+        int i = 0;
+        for (int j = 1; j < nums.length; j++) {
+            if(nums[j] != nums[i]){
+                i++;
+                nums[i] = nums[j];
+            }
+        }
+        return i+1;
+    }
+}
+```
+
