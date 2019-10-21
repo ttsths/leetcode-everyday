@@ -1,5 +1,9 @@
 # LeetCode EveryDay
 
+[TOC]
+
+
+
 ## 基础排序算法
 
 ### 1，快速排序-分治
@@ -16,9 +20,9 @@
 
 认识时间复杂度
 
-## 时间复杂度
+### 时间复杂度
 
-
+##### 两数之和
 
 > 1.两数之和（2019.09）
 >
@@ -58,6 +62,8 @@ class Solution {
 
 
 ## Day 2
+
+### 国庆旅行
 
 >2.国庆旅行
 >
@@ -117,6 +123,8 @@ class Solution {
     }
 ```
 
+### 整数反转
+
 >3.整数反转
 >
 >给出一个 32 位的有符号整数，你需要将这个整数中每位上的数字进行反转。
@@ -169,6 +177,8 @@ class Solution {
 
 ## Day 3
 
+### 回文数
+
 > 4.回文数
 >
 > 判断一个整数是否是回文数。回文数是指正序（从左向右）和倒序（从右向左）读都是一样的整数。
@@ -208,6 +218,8 @@ class Solution {
     }
 }
 ```
+
+### 罗马数字转整数
 
 >5.罗马数字转整数
 >
@@ -297,6 +309,8 @@ class Solution {
 }
 ```
 
+### 最长公共前缀
+
 >6.最长公共前缀
 >
 >编写一个函数来查找字符串数组中的最长公共前缀。
@@ -358,6 +372,8 @@ class Solution {
 ```
 
 ## Day 4
+
+### 删除排序数组中的重复项
 
 >7.删除排序数组中的重复项
 >
@@ -431,6 +447,8 @@ public class RemoveDuplicateSortdArray {
 
 ## Day 5
 
+### 合并两个有序链表
+
 >21.合并两个有序链表
 >
 >将两个有序链表合并为一个新的有序链表并返回。新链表是通过拼接给定的两个链表的所有节点组成的。 
@@ -467,6 +485,8 @@ public class RemoveDuplicateSortdArray {
 ```
 
 
+
+### 移除元素
 
 >27.移除元素
 >
@@ -536,6 +556,8 @@ public class RemoveDuplicateSortdArray {
 
 ## Day 6
 
+### 字符串找子串
+
 >#### [28. 实现 strStr()](https://leetcode-cn.com/problems/implement-strstr/)
 >
 >实现 strStr() 函数。
@@ -570,6 +592,8 @@ public static int strStr(String haystack, String needle) {
         return haystack.indexOf(needle);
     }
 ```
+
+### 链表相加
 
 >#### [2. 两数相加](https://leetcode-cn.com/problems/add-two-numbers/)
 >
